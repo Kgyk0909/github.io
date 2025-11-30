@@ -1,0 +1,45 @@
+{
+  "name": "PWAサンプル",
+  "short_name": "PWAサンプル",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "./assets/img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/img/screenshot_pc_1.png",
+      "type": "image/jpg",
+      "sizes": "1680x1026",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./assets/img/screenshot_pc_2.png",
+      "type": "image/jpg",
+      "sizes": "1680x1026",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./assets/img/screenshot_sp_1.png",
+      "type": "image/png",
+      "sizes": "1080x2400",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "./assets/img/screenshot_sp_2.png",
+      "type": "image/jpg",
+      "sizes": "1080x2400",
+      "form_factor": "narrow"
+    }
+  ]
+}

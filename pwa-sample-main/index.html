@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/img/favicon.ico" sizes="48x48">
+    <link rel="icon" href="./assets/img/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <title>PWA Sample</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/main.js"></script>
+  </head>
+
+  <body>
+    <h1>PWAサンプル</h1>
+    <input type="button" value="ボタン" onclick="msg()" class="btn" id="msgBtn">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register('./assets/js/sw.js');
+        });
+      }
+    </script>
+  </body>
+
+</html>
