@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pwa-chatbot-cache-v1';
 const urlsToCache = [
-    '/pwa_test/',
-    '/pwa_test/index.html',
-    '/pwa_test/manifest.json',
-    '/pwa_test/icon-192x192.png', // PNGアイコン
-    '/pwa_test/icon-512x512.png'  // PNGアイコン
+    '/github.io/',
+    '/github.io/index.html',
+    '/github.io/manifest.json',
+    '/github.io/icon-192x192.png', // PNGアイコン
+    '/github.io/icon-512x512.png'  // PNGアイコン
 ];
 
 self.addEventListener('install', (event) => {
