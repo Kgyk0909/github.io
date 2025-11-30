@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -82,7 +81,7 @@
             messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
             messageElement.textContent = message;
             chatContainer.appendChild(messageElement);
-            chatContainer.scrollTop = chatContainer.scrollHeight; // スクロールを一番下へ test
+            chatContainer.scrollTop = chatContainer.scrollHeight; // スクロールを一番下へ
         }
 
         sendButton.addEventListener('click', () => {

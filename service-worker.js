@@ -3,8 +3,8 @@ const urlsToCache = [
     '/',
     '/index.html',
     '/manifest.json',
-    '/icon-192x192.png', // ユーザーが用意するアイコン
-    '/icon-512x512.png'  // ユーザーが用意するアイコン
+    '/icon-192x192.png', // PNGアイコン
+    '/icon-512x512.png'  // PNGアイコン
 ];
 
 self.addEventListener('install', (event) => {
