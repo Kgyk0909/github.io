@@ -2,7 +2,7 @@
     "name": "PWA Chatbot",
     "short_name": "Chatbot",
     "description": "A simple PWA chatbot application.",
-    "start_url": "/",
+    "start_url": "/pwa_test/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#317EFB",
