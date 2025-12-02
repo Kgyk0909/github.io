@@ -13,7 +13,9 @@ export const chat = onCall(
     // Functions が実行されるランタイム環境で環境変数を取得
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
     if (!GEMINI_API_KEY) {
-      throw new HttpsError("internal", "Gemini API Key is not set in environment variables.");
+      // ユーザーがAPIキーをシークレットとして設定し忘れているか、シークレットのバインドに問題があります
+      logger.error("Error: Gemini API Key is not set in environment variables.", { structuredData: true });
+      throw new Error("Gemini API Key is not set in environment variables.");
     }
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });

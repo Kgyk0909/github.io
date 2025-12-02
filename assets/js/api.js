@@ -19,16 +19,16 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
   functions.useFunctionsEmulator("http://127.0.0.1:5001"); // functions.useFunctionsEmulator を使用
 }
 
-const auth = app.auth(); // app.auth() を使用
+// const auth = app.auth(); // app.auth() を削除
 
-// 匿名認証でFunctionsを呼び出せるようにする
-app.auth().signInAnonymously() // app.auth().signInAnonymously() を使用
-  .then(() => {
-    console.log("Signed in anonymously to Firebase.");
-  })
-  .catch((error) => {
-    console.error("Error signing in anonymously:", error);
-  });
+// 匿名認証は不要 // app.auth().signInAnonymously() を削除
+// app.auth().signInAnonymously()
+//   .then(() => {
+//     console.log("Signed in anonymously to Firebase.");
+//   })
+//   .catch((error) => {
+//     console.error("Error signing in anonymously:", error);
+//   });
 
 // chat Functions を呼び出す関数
 export async function callChatFunction(message, chatId = null) {
