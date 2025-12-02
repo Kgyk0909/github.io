@@ -12,6 +12,20 @@ import {
     hideTypingIndicator
 } from './ui.js';
 
+// ビューポートの高さを正確に設定するための処理
+function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// 初期ロード時とウィンドウのリサイズ時に実行
+window.addEventListener('load', setViewportHeight);
+window.addEventListener('resize', setViewportHeight);
+
+// PWAとしてインストールされた後のアドレスバーの表示/非表示に対応するため、orientationchange時にも実行
+window.addEventListener('orientationchange', setViewportHeight);
+
+
 // --- イベントリスナーの設定 ---
 
 // サイドバー関連
