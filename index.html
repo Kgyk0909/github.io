@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 
 <head>
@@ -59,21 +59,28 @@
       </div>
       <div class="settings-content">
         <form class="settings-form" id="settings-form">
-          <div class="form-group"><label for="gemini-api-key">Gemini API Key</label> <input type="text"
-              id="gemini-api-key" class="form-input api-key-input"
-              placeholder="AIzaSyDzLAoH4BYkUL0E97KJh8djSYn97Jj6X24">
-          </div>
           <div class="form-group"><label for="user-name">ユーザー名</label> <input type="text" id="user-name"
               class="form-input" placeholder="名前を入力">
           </div>
-          <div class="form-group"><label for="user-gender">性別</label> <input type="text" id="user-gender"
-              class="form-input" placeholder="性別を入力">
+          <div class="form-group"><label for="user-gender">性別</label> <input type="text" id="user-gender" class="form-input" placeholder="性別を入力">
+              <option value="">選択してください</option>
+              <option value="male">男性</option>
+              <option value="female">女性</option>
+              <option value="other">その他</option>
+              <option value="prefer-not-to-say">回答しない</option>
+            </select>
           </div>
           <div class="form-group"><label for="user-age">年齢</label> <input type="text" id="user-age" class="form-input"
-              placeholder="年齢を入力">
-          </div>
-          <div class="form-group"><label for="user-relationship">関係性</label> <input type="text" id="user-relationship"
-              class="form-input" placeholder="関係性を入力">
+          placeholder="年齢を入力">          </div>
+          <div class="form-group"><label for="user-relationship">関係性</label> <input type="text" id="user-relationship" class="form-input" placeholder="関係性を入力">
+              class="form-input">
+              <option value="">選択してください</option>
+              <option value="friend">友達</option>
+              <option value="colleague">同僚</option>
+              <option value="mentor">メンター</option>
+              <option value="assistant">アシスタント</option>
+              <option value="other">その他</option>
+            </select>
           </div><button type="submit" class="save-button">保存</button>
         </form>
       </div>
