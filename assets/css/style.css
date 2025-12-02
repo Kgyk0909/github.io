@@ -82,7 +82,6 @@ html {
   display: flex;
   flex-direction: column;
   z-index: 2;
-  pointer-events: none;
 }
 
 
@@ -92,7 +91,8 @@ html {
   left: 20px;
   width: 50px;
   height: 50px;
-  background: none;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(4px);
   border: none;
   cursor: pointer;
   display: flex;
@@ -106,32 +106,12 @@ html {
   flex-shrink: 0;
   z-index: 200;
   pointer-events: auto;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.6),
+    0 0 10px rgba(255, 107, 53, 0.4);
 }
 
 .chat-header {
   display: none;
-}
-
-.hamburger-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  padding: 8px;
-  border-radius: 12px;
-  transition: all 0.2s;
-  flex-shrink: 0;
-  z-index: 100;
-  pointer-events: auto;
 }
 
 .hamburger-button:hover {
@@ -165,7 +145,8 @@ html {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: none;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(4px);
   border: none;
   cursor: pointer;
   font-size: 24px;
@@ -178,6 +159,8 @@ html {
   color: #ff6b35;
   z-index: 200;
   pointer-events: auto;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.6),
+    0 0 10px rgba(255, 107, 53, 0.4);
 }
 
 .settings-button:hover {
@@ -347,11 +330,6 @@ html {
   flex-direction: column-reverse;
   gap: 8px;
   justify-content: flex-start;
-  pointer-events: none;
-}
-
-.chat-messages>* {
-  pointer-events: auto;
 }
 
 .chat-messages::-webkit-scrollbar,
@@ -737,6 +715,14 @@ html {
 
   .settings-content {
     padding: 24px 16px;
+  }
+}
+
+/* 縦幅が小さい場合のみチャット領域を拡大 */
+@media (max-height: 600px) {
+  .chat-area {
+    height: 100%;
+    top: 0;
   }
 }
 
