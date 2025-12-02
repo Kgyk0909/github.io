@@ -599,7 +599,7 @@ html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .form-group {
@@ -645,7 +645,6 @@ html {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  margin-top: 8px;
 }
 
 .save-button:hover {
