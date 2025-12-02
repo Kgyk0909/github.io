@@ -11,6 +11,9 @@ import {
     showTypingIndicator,
     hideTypingIndicator
 } from './ui.js';
+import { callChatFunction } from './api.js'; // 追加
+
+let currentChatId = null; // 追加
 
 // --- イベントリスナーの設定 ---
 
@@ -24,7 +27,10 @@ elements.hamburgerButton.addEventListener('click', () => {
 });
 elements.closeSidebar.addEventListener('click', closeSidebar);
 elements.sidebarOverlay.addEventListener('click', closeSidebar);
-elements.newChatButton.addEventListener('click', startNewChat);
+elements.newChatButton.addEventListener('click', () => { // 無名関数でラップしてchatIdをリセット
+    startNewChat();
+    currentChatId = null;
+});
 
 // 設定画面関連
 elements.settingsButton.addEventListener('click', openSettings);
@@ -33,7 +39,7 @@ elements.settingsForm.addEventListener('submit', saveSettings);
 
 // メッセージ入力フォーム関連
 elements.messageInput.addEventListener('input', autoResizeTextarea);
-elements.messageForm.addEventListener('submit', (e) => {
+elements.messageForm.addEventListener('submit', async (e) => { // async を追加
     e.preventDefault();
     
     const text = elements.messageInput.value.trim();
@@ -43,23 +49,18 @@ elements.messageForm.addEventListener('submit', (e) => {
     elements.messageInput.value = '';
     elements.messageInput.style.height = 'auto';
 
-    // ダミーのAI応答
-    setTimeout(() => {
-        showTypingIndicator();
-        
-        setTimeout(() => {
-            hideTypingIndicator();
-            const responses = [
-                "こんにちは！何かお手伝いできることはありますか？",
-                "それは興味深いですね。詳しく教えていただけますか？",
-                "なるほど、理解しました。他に質問はありますか？",
-                "ありがとうございます。それについてもっと知りたいです。",
-                "素晴らしい質問ですね！一緒に考えてみましょう。"
-            ];
-            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-            addMessageToScreen('ai', randomResponse);
-        }, 1500);
-    }, 500);
+    showTypingIndicator(); // Functions 呼び出し前に表示
+
+    try {
+        const response = await callChatFunction(text, currentChatId); // Functions を呼び出す
+        hideTypingIndicator(); // Functions 応答後に非表示
+        addMessageToScreen('ai', response.aiResponse); // AI応答を画面に表示
+        currentChatId = response.chatId; // 会話IDを更新
+    } catch (error) {
+        console.error("Error getting AI response:", error);
+        hideTypingIndicator(); // エラー時も非表示
+        addMessageToScreen('ai', "AIからの応答が取得できませんでした。"); // エラーメッセージを表示
+    }
 });
 
 // --- Service Workerの登録 ---
