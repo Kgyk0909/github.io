@@ -65,7 +65,7 @@ elements.messageForm.addEventListener('submit', (e) => {
 // --- Service Workerの登録 ---
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js') // ルートパスを指定
+        navigator.serviceWorker.register('/sw.js') // ルートパスを指定
             .then(registration => {
                 console.log('Service Worker registered: ', registration);
             })
