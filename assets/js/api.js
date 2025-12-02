@@ -17,9 +17,9 @@ const app = initializeApp(firebaseConfig);
 const functions = getFunctions(app, "us-central1"); // Functions のリージョンを設定
 
 // ローカル開発環境でのみFunctionsエミュレータを使用
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-  useFunctionsEmulator(functions, "http://127.0.0.1:5001");
-}
+// if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+//   useFunctionsEmulator(functions, "http://127.0.0.1:5001");
+// }
 
 const auth = getAuth(app);
 
