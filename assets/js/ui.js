@@ -16,6 +16,25 @@ export const elements = {
     toast: document.getElementById('toast')
 };
 
+// スワイプ関連の変数
+let touchStartX = 0;
+const SWIPE_THRESHOLD = 50; // スワイプと認識する最小距離（ピクセル）
+
+// サイドバーオーバーレイにスワイプイベントを追加
+elements.sidebarOverlay.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+elements.sidebarOverlay.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const distance = touchEndX - touchStartX;
+
+    // 左方向へのスワイプで、かつ閾値を超えている場合
+    if (elements.sidebar.classList.contains('open') && distance < -SWIPE_THRESHOLD) {
+        closeSidebar();
+    }
+});
+
 // メッセージを格納する配列
 export let messages = [];
 
