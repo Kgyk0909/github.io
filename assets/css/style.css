@@ -313,12 +313,36 @@ html {
 }
 
 .sidebar-section h3 {
-  margin: 0 0 12px 0;
-  font-size: 13px;
+  margin: 0; /* sidebar-section-header に移動するため */
+  font-size: 16px; /* 文字を大きく */
   font-weight: 600;
   color: #ff6b35;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* 新しいスタイル */
+.sidebar-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px; /* sidebar-section h3 から移動 */
+}
+
+.clear-history-button {
+  background: none;
+  border: none;
+  color: rgba(255, 107, 53, 0.7);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px; /* クリックしやすいように */
+  border-radius: 4px;
+}
+
+.clear-history-button:hover {
+  color: #ff6b35;
+  background: rgba(255, 107, 53, 0.1);
 }
 
 .chat-messages {
