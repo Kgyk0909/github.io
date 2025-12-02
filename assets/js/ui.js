@@ -1,19 +1,29 @@
 // DOM要素の取得
+const getElement = (id) => {
+    const element = document.getElementById(id);
+    if (!element) {
+        console.error(`Error: Element with ID '${id}' not found.`);
+    } else {
+        console.log(`Element with ID '${id}' found.`);
+    }
+    return element;
+};
+
 export const elements = {
-    chatMessages: document.getElementById('chat-messages'),
-    messageForm: document.getElementById('message-form'),
-    messageInput: document.getElementById('message-input'),
-    sendButton: document.getElementById('send-button'),
-    sidebar: document.getElementById('sidebar'),
-    sidebarOverlay: document.getElementById('sidebar-overlay'),
-    hamburgerButton: document.getElementById('hamburger-button'),
-    closeSidebar: document.getElementById('close-sidebar'),
-    newChatButton: document.getElementById('new-chat-button'),
-    settingsButton: document.getElementById('settings-button'),
-    settingsScreen: document.getElementById('settings-screen'),
-    closeSettings: document.getElementById('close-settings'),
-    settingsForm: document.getElementById('settings-form'),
-    toast: document.getElementById('toast')
+    chatMessages: getElement('chat-messages'),
+    messageForm: getElement('message-form'),
+    messageInput: getElement('message-input'),
+    sendButton: getElement('send-button'),
+    sidebar: getElement('sidebar'),
+    sidebarOverlay: getElement('sidebar-overlay'),
+    hamburgerButton: getElement('hamburger-button'),
+    closeSidebar: getElement('close-sidebar'),
+    newChatButton: getElement('new-chat-button'),
+    settingsButton: getElement('settings-button'),
+    settingsScreen: getElement('settings-screen'),
+    closeSettings: getElement('close-settings'),
+    settingsForm: getElement('settings-form'),
+    toast: getElement('toast')
 };
 
 // スワイプ関連の変数
